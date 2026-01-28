@@ -55,20 +55,18 @@ const LoginPage = () => {
       const testPassword = '123';
       
       if (formData.email === testEmail && formData.password === testPassword) {
-        console.log('Login attempt:', formData);
-        alert('Login successful! Redirecting to Dashboard...');
+        console.log('Login successful for:', formData.email);
         setFormData({ email: '', password: '' });
-        // Navigate to student dashboard
+        // Redirect to Student Portal on port 1574
         setTimeout(() => {
-          window.location.href = 'http://localhost:5175';
+          window.location.href = 'http://localhost:1574';
         }, 500);
       } else {
-        console.log('Login attempt:', formData);
-        alert('Login successful! Redirecting to Dashboard...');
+        console.log('Login successful for:', formData.email);
         setFormData({ email: '', password: '' });
-        // Navigate to student dashboard
+        // Redirect to Student Portal on port 1574
         setTimeout(() => {
-          window.location.href = 'http://localhost:5175';
+          window.location.href = 'http://localhost:1574';
         }, 500);
       }
     } catch (err) {

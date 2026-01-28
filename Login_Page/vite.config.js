@@ -10,4 +10,9 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: 1573,
+    host: 'localhost',
+    strictPort: true,
+  },
 })
