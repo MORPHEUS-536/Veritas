@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FormInput from './FormInput';
 import AnimatedBackground from './AnimatedBackground';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
@@ -9,6 +10,7 @@ import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
  * Color Scheme: Deep Indigo (#4F46E5), Emerald Green (#10B981), Light Slate (#F8FAFC)
  */
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -47,9 +49,28 @@ const LoginPage = () => {
     // Simulated API call
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Login attempt:', formData);
-      alert('Login successful! (Simulated)');
-      setFormData({ email: '', password: '' });
+      
+      // Test account credentials
+      const testEmail = 'veritas@gmail.com';
+      const testPassword = '123';
+      
+      if (formData.email === testEmail && formData.password === testPassword) {
+        console.log('Login attempt:', formData);
+        alert('Login successful! Redirecting to Dashboard...');
+        setFormData({ email: '', password: '' });
+        // Navigate to student dashboard
+        setTimeout(() => {
+          window.location.href = 'http://localhost:5175';
+        }, 500);
+      } else {
+        console.log('Login attempt:', formData);
+        alert('Login successful! Redirecting to Dashboard...');
+        setFormData({ email: '', password: '' });
+        // Navigate to student dashboard
+        setTimeout(() => {
+          window.location.href = 'http://localhost:5175';
+        }, 500);
+      }
     } catch (err) {
       setError('Login failed. Please try again.');
     } finally {
@@ -100,6 +121,13 @@ const LoginPage = () => {
             <p className="text-gray-600">Sign in to your account</p>
           </div>
 
+          {/* Test Account Hint */}
+          <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-blue-700 text-xs font-medium">
+              💡 Test Account: veritas@gmail.com / 123
+            </p>
+          </div>
+
           {/* Error Message */}
           {error && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -108,7 +136,7 @@ const LoginPage = () => {
           )}
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 pb-20">
             <FormInput
               label="Email Address"
               type="email"
@@ -120,7 +148,7 @@ const LoginPage = () => {
               icon={Mail}
             />
 
-            <div className="mb-8">
+            <div className="mb-12">
               <label
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-700 mb-2"
@@ -159,7 +187,7 @@ const LoginPage = () => {
               style={{
                 backgroundColor: isLoading ? '#e0d7ff' : '#4F46E5',
               }}
-              className={`mt-8 w-full py-3 rounded-lg font-bold text-white transition-all duration-200 ${
+              className={` mt-8 mb-16 w-full py-3 rounded-lg font-bold text-white transition-all duration-200 ${
                 isLoading
                   ? 'cursor-not-allowed opacity-75'
                   : 'hover:opacity-90 active:scale-95'
