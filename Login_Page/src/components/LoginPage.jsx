@@ -49,25 +49,31 @@ const LoginPage = () => {
     // Simulated API call
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Test account credentials
-      const testEmail = 'veritas@gmail.com';
-      const testPassword = '123';
-      
-      if (formData.email === testEmail && formData.password === testPassword) {
-        console.log('Login successful for:', formData.email);
+
+      // Teacher account credentials
+      const teacherEmail = 'Vteacher@gmail.com';
+      const teacherPassword = '123';
+
+      // Student account credentials
+      const studentEmail = 'veritas@gmail.com';
+      const studentPassword = '123';
+
+      if (formData.email === teacherEmail && formData.password === teacherPassword) {
+        console.log('Teacher login successful:', formData.email);
+        setFormData({ email: '', password: '' });
+        // Redirect to Teacher Dashboard on port 1575
+        setTimeout(() => {
+          window.location.href = 'http://localhost:1575';
+        }, 500);
+      } else if (formData.email === studentEmail && formData.password === studentPassword) {
+        console.log('Student login successful:', formData.email);
         setFormData({ email: '', password: '' });
         // Redirect to Student Portal on port 1574
         setTimeout(() => {
           window.location.href = 'http://localhost:1574';
         }, 500);
       } else {
-        console.log('Login successful for:', formData.email);
-        setFormData({ email: '', password: '' });
-        // Redirect to Student Portal on port 1574
-        setTimeout(() => {
-          window.location.href = 'http://localhost:1574';
-        }, 500);
+        setError('Invalid email or password');
       }
     } catch (err) {
       setError('Login failed. Please try again.');
@@ -120,9 +126,12 @@ const LoginPage = () => {
           </div>
 
           {/* Test Account Hint */}
-          <div className="mb-6 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg space-y-2">
             <p className="text-blue-700 text-xs font-medium">
-              💡 Test Account: veritas@gmail.com / 123
+              💡 Student Account: veritas@gmail.com / 123
+            </p>
+            <p className="text-blue-700 text-xs font-medium">
+              👨‍🏫 Teacher Account: Vteacher@gmail.com / 123
             </p>
           </div>
 
@@ -185,11 +194,10 @@ const LoginPage = () => {
               style={{
                 backgroundColor: isLoading ? '#e0d7ff' : '#4F46E5',
               }}
-              className={` mt-8 mb-16 w-full py-3 rounded-lg font-bold text-white transition-all duration-200 ${
-                isLoading
-                  ? 'cursor-not-allowed opacity-75'
-                  : 'hover:opacity-90 active:scale-95'
-              } shadow-lg hover:shadow-xl`}
+              className={` mt-8 mb-16 w-full py-3 rounded-lg font-bold text-white transition-all duration-200 ${isLoading
+                ? 'cursor-not-allowed opacity-75'
+                : 'hover:opacity-90 active:scale-95'
+                } shadow-lg hover:shadow-xl`}
             >
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">
