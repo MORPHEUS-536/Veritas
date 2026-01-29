@@ -1,0 +1,22 @@
+2026-01-29 21:12:13 - monitoring - INFO - __init__:50 - Monitoring service initialized
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:42 - ============================================================
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:43 - Monitoring Module Starting Up
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:44 - ============================================================
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:45 - Debug Mode: False
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:46 - API: http://0.0.0.0:8000
+2026-01-29 21:12:13 - monitoring - INFO - startup_event:47 - Docs: http://0.0.0.0:8000/docs
+2026-01-29 21:13:30 - monitoring - INFO - shutdown_event:53 - ============================================================
+2026-01-29 21:13:30 - monitoring - INFO - shutdown_event:54 - Monitoring Module Shutting Down
+2026-01-29 21:13:30 - monitoring - INFO - shutdown_event:55 - ============================================================
+2026-01-29 21:22:53 - monitoring - INFO - __init__:50 - Monitoring service initialized
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:42 - ============================================================
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:43 - Monitoring Module Starting Up
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:44 - ============================================================
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:45 - Debug Mode: False
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:46 - API: http://0.0.0.0:8000
+2026-01-29 21:22:53 - monitoring - INFO - startup_event:47 - Docs: http://0.0.0.0:8000/docs
+2026-01-29 21:24:51 - monitoring - INFO - process_data:100 - Processed data from inference: normal - All metrics within acceptable range
+2026-01-29 21:24:53 - monitoring - INFO - process_data:100 - Processed data from inference: normal - All metrics within acceptable range
+2026-01-29 21:36:15 - monitoring - INFO - shutdown_event:53 - ============================================================
+2026-01-29 21:36:15 - monitoring - INFO - shutdown_event:54 - Monitoring Module Shutting Down
+2026-01-29 21:36:15 - monitoring - INFO - shutdown_event:55 - ============================================================
