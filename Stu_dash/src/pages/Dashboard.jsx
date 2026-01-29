@@ -135,22 +135,22 @@ Grading Criteria:
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div style={{ minHeight: '100vh', backgroundColor: '#0f172a', color: '#f1f5f9' }}>
       <Header studentName={studentData.studentName} integrityScore={studentData.integrityScore} />
       
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1rem' }}>
         {/* Top Metrics Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          <div className="lg:col-span-1">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div>
             <ProofOfThought score={studentData.integrityScore} />
           </div>
-          <div className="lg:col-span-2">
+          <div style={{ gridColumn: 'span 2' }}>
             <CognitiveAptitude data={studentData.cognitiveProfile} />
           </div>
         </div>
 
         {/* Current Assignment Section */}
-        <div className="mb-8">
+        <div style={{ marginBottom: '2rem' }}>
           <CurrentAssignment assignment={studentData.assignments[0]} />
         </div>
 

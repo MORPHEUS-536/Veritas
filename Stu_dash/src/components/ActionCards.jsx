@@ -11,112 +11,195 @@ export default function ActionCards({ workstreams, onActionClick, isLoading }) {
   }
 
   const getProgressColor = (progress) => {
-    if (progress >= 75) return 'bg-green-500'
-    if (progress >= 50) return 'bg-blue-500'
-    if (progress >= 25) return 'bg-yellow-500'
-    return 'bg-slate-600'
+    if (progress >= 75) return '#10b981'
+    if (progress >= 50) return '#3b82f6'
+    if (progress >= 25) return '#f59e0b'
+    return '#64748b'
   }
 
-  const getStatusBadgeColor = (status) => {
-    if (status === 'completed') return 'bg-green-500/20 text-green-300 border-green-500/30'
-    if (status === 'in-progress') return 'bg-blue-500/20 text-blue-300 border-blue-500/30'
-    return 'bg-slate-700/50 text-slate-300 border-slate-700'
+  const getStatusColor = (status) => {
+    if (status === 'completed') return { bg: 'rgba(16, 185, 129, 0.2)', text: '#6ee7b7', border: 'rgba(16, 185, 129, 0.3)' }
+    if (status === 'in-progress') return { bg: 'rgba(59, 130, 246, 0.2)', text: '#93c5fd', border: 'rgba(59, 130, 246, 0.3)' }
+    return { bg: 'rgba(71, 85, 105, 0.5)', text: '#cbd5e1', border: '#475569' }
   }
 
   return (
     <div>
-      <h3 className="text-xl font-bold text-slate-50 mb-4">Work Streams - Thought Evolution</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {workstreams.map((workstream) => (
-          <div
-            key={workstream.id}
-            className="rounded-lg border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-sm hover:border-slate-700 transition-colors"
-          >
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex items-start gap-3">
-                <span className="text-3xl">{workstream.icon}</span>
-                <div>
-                  <h4 className="text-lg font-semibold text-slate-50">{workstream.name}</h4>
-                  <p className="text-sm text-slate-400">{workstream.description}</p>
+      <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#f1f5f9', marginBottom: '1rem' }}>Work Streams - Thought Evolution</h3>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+        {workstreams.map((workstream) => {
+          const statusColor = getStatusColor(workstream.status)
+          
+          return (
+            <div
+              key={workstream.id}
+              style={{
+                borderRadius: '0.5rem',
+                border: '1px solid #334155',
+                backgroundColor: 'rgba(15, 23, 42, 0.5)',
+                padding: '1.5rem',
+                backdropFilter: 'blur(4px)',
+                transition: 'border-color 0.2s'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = '#475569'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = '#334155'}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                <div style={{ display: 'flex', gap: '0.75rem', flex: 1 }}>
+                  <span style={{ fontSize: '1.875rem' }}>{workstream.icon}</span>
+                  <div>
+                    <h4 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#f1f5f9' }}>{workstream.name}</h4>
+                    <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>{workstream.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Status Badge */}
-            <div className="mb-4">
-              <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium border ${getStatusBadgeColor(workstream.status)}`}>
-                {workstream.status === 'completed' ? 'Completed' : workstream.status === 'in-progress' ? 'In Progress' : 'Not Started'}
-              </span>
-              {workstream.lastUpdated && (
-                <p className="text-xs text-slate-500 mt-1">Updated {workstream.lastUpdated}</p>
-              )}
-            </div>
-
-            {/* Progress Bar */}
-            <div className="mb-4">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-xs font-medium text-slate-400">Progress</p>
-                <span className="text-sm font-semibold text-slate-300">{workstream.progress}%</span>
+              {/* Status Badge */}
+              <div style={{ marginBottom: '1rem' }}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: '500',
+                  border: `1px solid ${statusColor.border}`,
+                  backgroundColor: statusColor.bg,
+                  color: statusColor.text
+                }}>
+                  {workstream.status === 'completed' ? 'Completed' : workstream.status === 'in-progress' ? 'In Progress' : 'Not Started'}
+                </span>
+                {workstream.lastUpdated && (
+                  <p style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>Updated {workstream.lastUpdated}</p>
+                )}
               </div>
-              <div className="w-full bg-slate-800 rounded-full h-2">
-                <div
-                  className={`h-2 rounded-full transition-all duration-500 ${getProgressColor(workstream.progress)}`}
-                  style={{ width: `${workstream.progress}%` }}
-                ></div>
-              </div>
-            </div>
 
-            {/* Thought Evolution Details */}
-            <div className="bg-slate-950/50 rounded-lg p-3 mb-4 border border-slate-800">
-              <p className="text-xs text-slate-400 mb-1">Thought Evolution</p>
-              <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
+              {/* Progress Bar */}
+              <div style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                  <p style={{ fontSize: '0.75rem', fontWeight: '500', color: '#94a3b8' }}>Progress</p>
+                  <span style={{ fontSize: '0.875rem', fontWeight: '600', color: '#cbd5e1' }}>{workstream.progress}%</span>
+                </div>
+                <div style={{ width: '100%', backgroundColor: '#1e293b', borderRadius: '9999px', height: '0.5rem' }}>
                   <div
-                    key={i}
-                    className={`h-2 flex-1 rounded-full ${
-                      i < Math.ceil(workstream.progress / 20)
-                        ? 'bg-primary-500'
-                        : 'bg-slate-700'
-                    }`}
+                    style={{
+                      height: '0.5rem',
+                      borderRadius: '9999px',
+                      backgroundColor: getProgressColor(workstream.progress),
+                      width: `${workstream.progress}%`,
+                      transition: 'width 0.5s ease'
+                    }}
                   ></div>
-                ))}
+                </div>
+              </div>
+
+              {/* Thought Evolution Details */}
+              <div style={{ backgroundColor: 'rgba(3, 7, 18, 0.5)', borderRadius: '0.5rem', padding: '0.75rem', marginBottom: '1rem', border: '1px solid #334155' }}>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Thought Evolution</p>
+                <div style={{ display: 'flex', gap: '0.25rem' }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        height: '0.5rem',
+                        flex: 1,
+                        borderRadius: '9999px',
+                        backgroundColor: i < Math.ceil(workstream.progress / 20) ? '#8b5cf6' : '#475569'
+                      }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                {workstream.id === 1 ? (
+                  <button
+                    onClick={() => handleOpenLogicTree(workstream)}
+                    disabled={isLoading}
+                    style={{
+                      flex: 1,
+                      padding: '0.5rem 0.75rem',
+                      backgroundColor: '#7c3aed',
+                      color: 'white',
+                      borderRadius: '0.5rem',
+                      fontWeight: '600',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '0.875rem',
+                      opacity: isLoading ? 0.5 : 1,
+                      transition: 'background-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => !isLoading && (e.target.style.backgroundColor = '#6d28d9')}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = '#7c3aed')}
+                  >
+                    {isLoading ? 'Opening...' : 'Open Canvas'}
+                  </button>
+                ) : workstream.status === 'not-started' ? (
+                  <button
+                    onClick={() => onActionClick(workstream.id, 'start')}
+                    disabled={isLoading}
+                    style={{
+                      flex: 1,
+                      padding: '0.5rem 0.75rem',
+                      backgroundColor: '#7c3aed',
+                      color: 'white',
+                      borderRadius: '0.5rem',
+                      fontWeight: '600',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '0.875rem',
+                      opacity: isLoading ? 0.5 : 1,
+                      transition: 'background-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => !isLoading && (e.target.style.backgroundColor = '#6d28d9')}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = '#7c3aed')}
+                  >
+                    {isLoading ? 'Starting...' : 'Start'}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => onActionClick(workstream.id, 'update')}
+                    disabled={isLoading}
+                    style={{
+                      flex: 1,
+                      padding: '0.5rem 0.75rem',
+                      backgroundColor: '#7c3aed',
+                      color: 'white',
+                      borderRadius: '0.5rem',
+                      fontWeight: '600',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '0.875rem',
+                      opacity: isLoading ? 0.5 : 1,
+                      transition: 'background-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => !isLoading && (e.target.style.backgroundColor = '#6d28d9')}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = '#7c3aed')}
+                  >
+                    {isLoading ? 'Updating...' : 'Update'}
+                  </button>
+                )}
+                <button style={{
+                  flex: 1,
+                  padding: '0.5rem 0.75rem',
+                  backgroundColor: '#1e293b',
+                  color: '#cbd5e1',
+                  borderRadius: '0.5rem',
+                  fontWeight: '600',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  transition: 'background-color 0.2s'
+                }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = '#0f172a'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#1e293b'}
+                >
+                  Review
+                </button>
               </div>
             </div>
-
-            {/* Action Buttons */}
-            <div className="flex gap-2">
-              {workstream.id === 1 ? (
-                // Logic Tree Canvas button
-                <button
-                  onClick={() => handleOpenLogicTree(workstream)}
-                  disabled={isLoading}
-                  className="flex-1 px-3 py-2 bg-primary-600 hover:bg-primary-700 disabled:opacity-50 text-white rounded-lg font-semibold transition-colors text-sm"
-                >
-                  {isLoading ? 'Opening...' : 'Open Canvas'}
-                </button>
-              ) : workstream.status === 'not-started' ? (
-                <button
-                  onClick={() => onActionClick(workstream.id, 'start')}
-                  disabled={isLoading}
-                  className="flex-1 px-3 py-2 bg-primary-600 hover:bg-primary-700 disabled:opacity-50 text-white rounded-lg font-semibold transition-colors text-sm"
-                >
-                  {isLoading ? 'Starting...' : 'Start'}
-                </button>
-              ) : (
-                <button
-                  onClick={() => onActionClick(workstream.id, 'update')}
-                  disabled={isLoading}
-                  className="flex-1 px-3 py-2 bg-primary-600 hover:bg-primary-700 disabled:opacity-50 text-white rounded-lg font-semibold transition-colors text-sm"
-                >
-                  {isLoading ? 'Updating...' : 'Update'}
-                </button>
-              )}
-              <button className="flex-1 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg font-semibold transition-colors text-sm">
-                Review
-              </button>
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Logic Tree Modal */}

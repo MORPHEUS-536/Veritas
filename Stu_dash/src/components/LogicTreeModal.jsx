@@ -5,36 +5,101 @@ export default function LogicTreeModal({ isOpen, onClose }) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-slate-900 rounded-lg border border-slate-800 max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+    <div style={{
+      position: 'fixed',
+      inset: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      backdropFilter: 'blur(4px)',
+      zIndex: 50,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1rem'
+    }}>
+      <div style={{
+        backgroundColor: '#1e293b',
+        borderRadius: '0.5rem',
+        border: '1px solid #334155',
+        maxWidth: '56rem',
+        width: '100%',
+        maxHeight: '90vh',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-slate-800">
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '1.5rem',
+          borderBottom: '1px solid #334155'
+        }}>
           <div>
-            <h2 className="text-2xl font-bold text-slate-50">Logic Tree Canvas</h2>
-            <p className="text-sm text-slate-400 mt-1">Visualize your logical arguments and reasoning structure</p>
+            <h2 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#f1f5f9' }}>Logic Tree Canvas</h2>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8', marginTop: '0.25rem' }}>Visualize your logical arguments and reasoning structure</p>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-200 text-2xl transition-colors"
+            style={{
+              color: '#94a3b8',
+              fontSize: '1.5rem',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'color 0.2s'
+            }}
+            onMouseEnter={(e) => e.target.style.color = '#cbd5e1'}
+            onMouseLeave={(e) => e.target.style.color = '#94a3b8'}
           >
             ×
           </button>
         </div>
 
         {/* Canvas */}
-        <div className="flex-1 overflow-hidden">
+        <div style={{ flex: 1, overflow: 'hidden' }}>
           <LogicTreeCanvas />
         </div>
 
         {/* Footer */}
-        <div className="border-t border-slate-800 p-6 flex gap-3 justify-end bg-slate-950/50">
+        <div style={{
+          borderTop: '1px solid #334155',
+          padding: '1.5rem',
+          display: 'flex',
+          gap: '0.75rem',
+          justifyContent: 'flex-end',
+          backgroundColor: 'rgba(3, 7, 18, 0.5)'
+        }}>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg font-semibold transition-colors"
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: '#1e293b',
+              color: '#cbd5e1',
+              borderRadius: '0.5rem',
+              fontWeight: '600',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = '#0f172a'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = '#1e293b'}
           >
             Close
           </button>
-          <button className="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-semibold transition-colors">
+          <button style={{
+            padding: '0.5rem 1rem',
+            backgroundColor: '#7c3aed',
+            color: 'white',
+            borderRadius: '0.5rem',
+            fontWeight: '600',
+            border: 'none',
+            cursor: 'pointer',
+            transition: 'background-color 0.2s'
+          }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#6d28d9'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = '#7c3aed'}
+          >
             Save Canvas
           </button>
         </div>

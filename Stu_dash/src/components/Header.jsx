@@ -2,25 +2,23 @@ import { Link } from 'react-router-dom'
 
 export default function Header({ studentName, integrityScore }) {
   return (
-    <header className="bg-slate-900 border-b border-slate-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="text-2xl font-bold text-primary-500">Veritas</div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-semibold text-slate-50">Student Learning Dashboard</h1>
-              <p className="text-sm text-slate-400">Track your academic integrity journey</p>
-            </div>
+    <header style={{ backgroundColor: '#1e293b', borderBottom: '1px solid #334155' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#a78bfa' }}>Veritas</div>
+          <div>
+            <h1 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#f1f5f9' }}>Student Learning Dashboard</h1>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Track your academic integrity journey</p>
           </div>
-          
-          <div className="flex items-center gap-6">
-            <div className="text-right">
-              <p className="text-sm text-slate-400">Welcome back</p>
-              <p className="text-lg font-semibold text-slate-50">{studentName}</p>
-            </div>
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-              <span className="text-white font-bold">{studentName.charAt(0)}</span>
-            </div>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <div style={{ textAlign: 'right' }}>
+            <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Welcome back</p>
+            <p style={{ fontSize: '1.125rem', fontWeight: '600', color: '#f1f5f9' }}>{studentName}</p>
+          </div>
+          <div style={{ width: '2.5rem', height: '2.5rem', borderRadius: '50%', background: 'linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
+            {studentName?.charAt(0)}
           </div>
         </div>
       </div>
