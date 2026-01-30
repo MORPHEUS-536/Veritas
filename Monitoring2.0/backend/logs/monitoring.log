@@ -1,0 +1,94 @@
+2026-01-31 00:06:33,997 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:06:34,220 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8000
+2026-01-31 00:06:35,098 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:06:35,110 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:06:35,110 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:06:35,110 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:06:35,110 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:06:35,111 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:06:35,111 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:06:35,111 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:06:35,111 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:06:35,111 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:06:35,111 - app - INFO - main.py:92 - Application running on 0.0.0.0:8000
+2026-01-31 00:06:35,111 - app - INFO - main.py:93 - ============================================================
+2026-01-31 00:06:41,378 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:09:18,886 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:09:18,926 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8000
+2026-01-31 00:09:18,948 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:09:18,956 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:09:18,956 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:09:18,956 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:09:18,956 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:09:18,956 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:09:18,956 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:09:18,957 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:09:18,957 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:09:18,957 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:09:18,957 - app - INFO - main.py:92 - Application running on 0.0.0.0:8000
+2026-01-31 00:09:18,957 - app - INFO - main.py:93 - ============================================================
+2026-01-31 00:09:27,599 - app - INFO - main.py:98 - ============================================================
+2026-01-31 00:09:27,600 - app - INFO - main.py:99 - Shutting down Monitoring System Backend
+2026-01-31 00:09:27,601 - app - INFO - main.py:100 - ============================================================
+2026-01-31 00:11:30,331 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:11:30,387 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8000
+2026-01-31 00:11:30,421 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:11:30,435 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:11:30,435 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:11:30,435 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:11:30,436 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:11:30,436 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:11:30,437 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:11:30,437 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:11:30,437 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:11:30,437 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:11:30,438 - app - INFO - main.py:92 - Application running on 0.0.0.0:8000
+2026-01-31 00:11:30,438 - app - INFO - main.py:93 - ============================================================
+2026-01-31 00:11:44,472 - app - INFO - main.py:98 - ============================================================
+2026-01-31 00:11:44,473 - app - INFO - main.py:99 - Shutting down Monitoring System Backend
+2026-01-31 00:11:44,474 - app - INFO - main.py:100 - ============================================================
+2026-01-31 00:13:15,825 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:13:15,903 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8000
+2026-01-31 00:13:15,929 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:13:15,936 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:13:15,937 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:13:15,937 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:13:15,937 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:13:15,937 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:13:15,938 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:13:15,938 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:13:15,938 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:13:15,938 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:13:15,938 - app - INFO - main.py:92 - Application running on 0.0.0.0:8000
+2026-01-31 00:13:15,939 - app - INFO - main.py:93 - ============================================================
+2026-01-31 00:15:25,961 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:15:26,004 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8000
+2026-01-31 00:15:26,023 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:15:26,031 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:15:26,031 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:15:26,031 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:15:26,031 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:15:26,031 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:15:26,031 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:15:26,031 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:15:26,032 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:15:26,032 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:15:26,032 - app - INFO - main.py:92 - Application running on 0.0.0.0:8000
+2026-01-31 00:15:26,032 - app - INFO - main.py:93 - ============================================================
+2026-01-31 00:15:26,032 - app - INFO - main.py:98 - ============================================================
+2026-01-31 00:15:26,032 - app - INFO - main.py:99 - Shutting down Monitoring System Backend
+2026-01-31 00:15:26,032 - app - INFO - main.py:100 - ============================================================
+2026-01-31 00:16:11,528 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:16:11,576 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8001
+2026-01-31 00:16:11,598 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 00:16:11,603 - app - INFO - main.py:71 - ============================================================
+2026-01-31 00:16:11,604 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 00:16:11,604 - app - INFO - main.py:73 - ============================================================
+2026-01-31 00:16:11,604 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 00:16:11,605 - app.utils.database - INFO - database.py:280 - Monitoring database initialized
+2026-01-31 00:16:11,605 - app - INFO - main.py:85 - Database initialized
+2026-01-31 00:16:11,605 - app - INFO - main.py:88 - LLM Monitoring: ENABLED
+2026-01-31 00:16:11,605 - app - INFO - main.py:89 - Warning Threshold: 0.7
+2026-01-31 00:16:11,605 - app - INFO - main.py:90 - Critical Threshold: 0.9
+2026-01-31 00:16:11,605 - app - INFO - main.py:92 - Application running on 0.0.0.0:8001
+2026-01-31 00:16:11,606 - app - INFO - main.py:93 - ============================================================
