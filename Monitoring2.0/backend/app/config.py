@@ -1,13 +1,16 @@
 """
 Configuration Management for Monitoring System
 Loads settings from environment variables with sensible defaults.
+Supports PostgreSQL via NeonDB for cloud database hosting.
 """
 
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file in parent directory
+env_path = Path(__file__).parent.parent.parent.parent / '.env'
+load_dotenv(dotenv_path=str(env_path))
 
 
 class Settings:
@@ -19,6 +22,12 @@ class Settings:
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
     HOST: str = os.getenv("HOST", "0.0.0.0")
     PORT: int = int(os.getenv("PORT", "8000"))
+    
+    # Database Configuration (PostgreSQL via NeonDB)
+    DATABASE_URL: str = os.getenv(
+        "DATABASE_URL",
+        "postgresql://postgres:password@localhost:5432/veritas_db"
+    )
     
     # Monitoring Configuration
     ENABLE_LLM_MONITORING: bool = os.getenv("ENABLE_LLM_MONITORING", "True").lower() == "true"

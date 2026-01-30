@@ -1,6 +1,10 @@
 fastapi
+uvicorn
 pydantic
-groq
 python-dotenv
+pandas
+numpy
+scikit-learn
+groq
 sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.0

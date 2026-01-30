@@ -92,3 +92,41 @@
 2026-01-31 00:16:11,605 - app - INFO - main.py:90 - Critical Threshold: 0.9
 2026-01-31 00:16:11,605 - app - INFO - main.py:92 - Application running on 0.0.0.0:8001
 2026-01-31 00:16:11,606 - app - INFO - main.py:93 - ============================================================
+2026-01-31 03:19:16,879 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 03:19:16,930 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8001
+2026-01-31 03:19:16,957 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 03:19:16,964 - app - INFO - main.py:71 - ============================================================
+2026-01-31 03:19:16,965 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 03:19:16,965 - app - INFO - main.py:73 - ============================================================
+2026-01-31 03:19:16,965 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 03:19:21,035 - app.utils.database - ERROR - database.py:77 - Failed to create tables: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-31 03:19:21,036 - app.utils.database - ERROR - database.py:358 - Failed to initialize database: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-31 03:19:58,332 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 03:19:58,380 - app - INFO - main.py:175 - Starting server at 0.0.0.0:8001
+2026-01-31 03:19:58,399 - app - INFO - main.py:55 - Logging configured at level INFO
+2026-01-31 03:19:58,406 - app - INFO - main.py:71 - ============================================================
+2026-01-31 03:19:58,406 - app - INFO - main.py:72 - Starting Monitoring System Backend v1.0.0
+2026-01-31 03:19:58,406 - app - INFO - main.py:73 - ============================================================
+2026-01-31 03:19:58,406 - app - INFO - main.py:78 - Configuration validated successfully
+2026-01-31 03:20:02,520 - app.utils.database - ERROR - database.py:77 - Failed to create tables: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-31 03:20:02,521 - app.utils.database - ERROR - database.py:358 - Failed to initialize database: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
