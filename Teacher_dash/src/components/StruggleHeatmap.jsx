@@ -109,8 +109,7 @@ export default function StruggleHeatmap({ students, onViewStudent }) {
                                     </button>
                                 </TableHead>
                                 <TableHead className="text-electric font-semibold">Status</TableHead>
-                                <TableHead className="text-electric font-semibold">Flags</TableHead>
-                                <TableHead className="text-electric font-semibold">Last Active</TableHead>
+                                <TableHead className="text-electric font-semibold w-1/3">Flags</TableHead>
                                 <TableHead className="text-electric font-semibold text-right">Actions</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -157,7 +156,6 @@ export default function StruggleHeatmap({ students, onViewStudent }) {
                                             )}
                                         </div>
                                     </TableCell>
-                                    <TableCell className="text-gray-400 text-sm">{student.lastActive}</TableCell>
                                     <TableCell className="text-right">
                                         <Button
                                             variant="outline"

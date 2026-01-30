@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 export default function Header({ studentName, integrityScore }) {
   return (
     <header style={{ backgroundColor: '#1e293b', borderBottom: '1px solid #334155' }}>

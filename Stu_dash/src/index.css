@@ -11,11 +11,11 @@ html {
 }
 
 body {
-  @apply bg-slate-950 text-slate-50 font-sans;
   background-color: #0f172a !important;
   color: #f1f5f9 !important;
   margin: 0;
   padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 #root {
@@ -24,7 +24,8 @@ body {
 }
 
 html, body, #root {
-  @apply h-full w-full;
+  height: 100%;
+  width: 100%;
 }
 
 .dark {

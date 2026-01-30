@@ -2,6 +2,10 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import StruggleHeatmap from '../components/StruggleHeatmap';
 import StudentDetailDialog from '../components/StudentDetailDialog';
+import ClassroomHealthOverview from '../components/ClassroomHealthOverview';
+import IntegrityVsAnxietyFilter from '../components/IntegrityVsAnxietyFilter';
+import PredictiveInterventionTrigger from '../components/PredictiveInterventionTrigger';
+import VelocityTrackingAndPairing from '../components/VelocityTrackingAndPairing';
 import { mockStudents } from '../data/mockStudentData';
 import { Users, TrendingUp, AlertTriangle, Award } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
@@ -31,6 +35,33 @@ export default function TeacherDashboard() {
     const avgIntegrityScore = (students.reduce((sum, s) => sum + s.integrityScore, 0) / totalStudents).toFixed(1);
     const atRiskStudents = students.filter(s => s.integrityScore < 60).length;
     const certificatesIssued = students.filter(s => s.socraticResults.certificateApproved).length;
+    
+    // Calculate ECI metrics
+    const studentsActive = students.filter(s => s.isActive !== false).length;
+    const studentsFlagged = students.filter(s => s.integrityScore < 60 || s.suddenJumpFlag).length;
+    const studentsHighRisk = students.filter(s => s.dropoutRiskLevel === 'HIGH' || s.stagnationDurationMinutes > 20).length;
+    const averageProgressScore = Math.round(students.reduce((sum, s) => sum + (s.learningProgressScore || 0), 0) / totalStudents);
+    
+    // Determine stagnation trend
+    const stagnationTrend = averageProgressScore < 50 && studentsHighRisk > totalStudents * 0.2
+      ? '⚠️ Average progress has dropped 15%+ while stagnation increases. Material may need re-explanation.'
+      : null;
+    
+    // Find top sticking point
+    const conceptCounts = {};
+    students.forEach(s => {
+      if (s.conceptName) {
+        conceptCounts[s.conceptName] = (conceptCounts[s.conceptName] || 0) + 1;
+      }
+    });
+    const topStickingPoint = Object.entries(conceptCounts).sort(([, a], [, b]) => b - a)[0]?.[0] || 'None identified';
+    
+    // Determine classroom health
+    const getClassroomHealth = () => {
+      if (studentsHighRisk > totalStudents * 0.3) return 'AT-RISK';
+      if (averageProgressScore > 70) return 'ACCELERATING';
+      return 'STABLE';
+    };
 
     return (
         <div className="min-h-screen bg-midnight text-gray-100">
@@ -94,6 +125,46 @@ export default function TeacherDashboard() {
 
                 {/* Struggle Heatmap */}
                 <StruggleHeatmap students={students} onViewStudent={handleViewStudent} />
+
+                {/* ECI System - Classroom Intelligence */}
+                <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+                  <h3 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#f1f5f9', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    🧠 Educational Cohort Intelligence (ECI)
+                  </h3>
+
+                  {/* Classroom Health - Full Width */}
+                  <div style={{ marginBottom: '2rem' }}>
+                    <ClassroomHealthOverview 
+                      totalStudents={totalStudents}
+                      studentsActive={studentsActive}
+                      studentsFlagged={studentsFlagged}
+                      studentsHighRisk={studentsHighRisk}
+                      averageProgressScore={averageProgressScore}
+                      stagnationTrend={stagnationTrend}
+                    />
+                  </div>
+
+                  {/* Integrity vs Anxiety Analysis */}
+                  <div style={{ marginBottom: '2rem' }}>
+                    <IntegrityVsAnxietyFilter students={students} />
+                  </div>
+
+                  {/* Predictive Interventions */}
+                  <div style={{ marginBottom: '2rem' }}>
+                    <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#f1f5f9', marginBottom: '1rem' }}>
+                      🎯 Predictive Interventions & Risk Management
+                    </h3>
+                    <PredictiveInterventionTrigger students={students} />
+                  </div>
+
+                  {/* Velocity & Pairing */}
+                  <div>
+                    <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#f1f5f9', marginBottom: '1rem' }}>
+                      📊 Advanced Learning Analytics
+                    </h3>
+                    <VelocityTrackingAndPairing students={students} />
+                  </div>
+                </div>
 
                 {/* Student Detail Dialog */}
                 <StudentDetailDialog
